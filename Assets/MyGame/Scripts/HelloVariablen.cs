@@ -1,30 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HelloVariablen : MonoBehaviour
 {
+    //Value Types: Wert wirm im Speicher direkt hinterlegt
+    int myInt = 0;
+    bool myBool = true;
 
-int myInt = 0;
-bool myBool = true;
+    string myString = "Hallo";
 
-int[] myArray = new int [3] {0,0,0};
+    int[] myArray = new int[] { 0, 0, 0 };
 
-    void Start()
+    private void Start()
     {
         Debug.Log(sizeof(int));
         Debug.Log(sizeof(bool));
 
-        int tmp = myInt;
-        myInt = myInt++;
-        Debug.Log("myInt: " + myInt + " tmp " + tmp);
+        int tempInt = myInt;
+        myInt++;
+        Debug.Log("myInt: " + myInt + " temp: " + tempInt);
 
-        int[] tmpArray = myArray;
+        //Reference Type
+        int[] tempArray = myArray;
         myArray[0] = 1;
         myArray[1] = 2;
         myArray[2] = 3;
 
-        foreach(int a in tmpArray)
+        foreach(int a in tempArray)
         {
             Debug.Log(a);
         }
@@ -34,8 +35,8 @@ int[] myArray = new int [3] {0,0,0};
             Debug.Log(a);
         }
 
-        string tmpString = a;
-        a = "hello";
-        Debug.Log("a " + a + " tmpString " + tmpString);
+        string tempString = myString;
+        myString = "Hello";
+        Debug.Log("myString: " + myString + " tempString: " + tempString);
     }
 }
